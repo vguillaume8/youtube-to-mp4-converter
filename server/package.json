@@ -1,5 +1,5 @@
 {
-  "name": "youtube-to-mp4-converter",
+  "name": "youtube-to-mp4-converter-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
