@@ -9,8 +9,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.16",
+    "console-log-level": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "ffmpeg": "0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "horizon-youtube-mp3": "^1.9.1",
+    "http": "0.0.0",
+    "url": "^0.11.0",
+    "youtube-mp3-downloader": "^0.5.3",
     "ytdl-core": "^0.28.1"
   }
 }
