@@ -4,8 +4,6 @@ const ytdl = require('ytdl-core');
 const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
 const ffmpeg = require('fluent-ffmpeg');
 var horizon = require('horizon-youtube-mp3');
-var http = require('http');
-var url  = require('url') ;
 var log = require('console-log-level')({ level: 'info' });
 ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 const app = express();
