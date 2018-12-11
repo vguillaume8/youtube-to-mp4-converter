@@ -10,4 +10,4 @@ RUN npm install
 
 CMD node app.js
 
-EXPOSE 80
+EXPOSE 4000
