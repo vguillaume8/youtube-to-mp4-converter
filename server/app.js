@@ -1,5 +1,9 @@
 const express = require('express');
 let sndcld_dl = require("./sndcld-dl");
+var fs = require('fs');
+var scdl = require('scdl')
+const SoundRain = require('soundrain');
+const soundcloudDl = require("soundcloud-dl");
 const cors = require('cors');
 const ytdl = require('ytdl-core');
 const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
@@ -47,13 +51,16 @@ app.get('/mp3', (req, res) => {
 
 });
 
-app.get('/soundcloud', (req, res) => {
+app.get('/soundcloud', (req, res, next) => {
 
 	var url = req.query.URL;
-	console.log("ran");
-	sndcld_dl(url, "/tmp/eden.mp3");
-	res.header('Content-Disposition', 'attachment; filename="soundcloud.mp3"');
-	res.sendFile("/tmp/eden.mp3");
+	soundcloudDl.getSongDlByURL(url).then(function(song){
+	console.log(song)
 
+	
+	  
+	  res.redirect(song.http_mp3_128_url);
+});
+	
 });
 
