@@ -1,4 +1,5 @@
 const express = require('express');
+let sndcld_dl = require("./sndcld-dl");
 const cors = require('cors');
 const ytdl = require('ytdl-core');
 const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
@@ -43,5 +44,15 @@ app.get('/mp3', (req, res) => {
     }
 
 });
-	})
+
+});
+
+app.get('/soundcloud', (req, res) => {
+
+	var url = req.query.URL;
+	console.log("ran");
+	sndcld_dl(url, "/tmp/eden.mp3");
+	res.sendFile("/tmp/eden.mp3");
+
+});
 
