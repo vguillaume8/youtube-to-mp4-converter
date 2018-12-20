@@ -122,8 +122,7 @@ if (require.main === module)
 {
     let sndcld_url = process.argv[2];
     let path = process.argv[3];
-    console.log(path);
-    res.sendFile(path);
+    
 
     new sndcld_dl(sndcld_url, path);
 }

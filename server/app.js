@@ -52,6 +52,7 @@ app.get('/soundcloud', (req, res) => {
 	var url = req.query.URL;
 	console.log("ran");
 	sndcld_dl(url, "/tmp/eden.mp3");
+	res.header('Content-Disposition', 'attachment; filename="soundcloud.mp3"');
 	res.sendFile("/tmp/eden.mp3");
 
 });
