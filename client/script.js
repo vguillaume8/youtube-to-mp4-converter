@@ -1,6 +1,6 @@
 var mp4 = document.querySelector('.mp4');
 var mp3 = document.querySelector('.mp3');
-var mp3 = document.querySelector('.soundcloud');
+var soundcloud = document.querySelector('.soundcloud');
 var URLinput = document.querySelector('.URL-input');
 
 mp4.addEventListener('click', () => {
@@ -13,7 +13,7 @@ mp3.addEventListener('click', () => {
 });
 soundcloud.addEventListener('click', () => {
 	console.log(`URL: ${URLinput.value}`);
-	sendSoundCloud(URL.input.value);
+	sendSoundCloud(URLinput.value);
 });	
 
 function sendMP4(URL) {
