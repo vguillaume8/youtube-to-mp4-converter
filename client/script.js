@@ -33,17 +33,17 @@ soundcloud.addEventListener('click', () => {
 
 function sendMP4(URL) {
 	let UserIP = captureUserIp();
-	window.location.href = `${HOST}:4000/mp4?URL=${URL}&IP=${UserIP}`;
+	window.location.href = `${HOST}/mp4?URL=${URL}&IP=${UserIP}`;
 }
 
 function sendMP3(URL) {
 	let UserIP = captureUserIp();
-	window.location.href = `${HOST}:4000/mp3?URL=${URL}&IP=${UserIP}`;
+	window.location.href = `${HOST}/mp3?URL=${URL}&IP=${UserIP}`;
 }
 
 function sendSoundCloud(URL) {
 	let UserIP = captureUserIp();
-	window.location.href = `${HOST}:4000/soundcloud?URL=${URL}&IP=${UserIP}`;
+	window.location.href = `${HOST}/soundcloud?URL=${URL}&IP=${UserIP}`;
 }
 
 function captureUserIp(){
