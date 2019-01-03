@@ -63,5 +63,5 @@ docker build -t vguillaume/youtube-mp4-client:$version  client
 
 # Push them to docker hub
 echo "Pushing docker images"
-docker push vguillaume/youtube-mp4-server:latest
-docker push vguillaume/youtube-mp4-client:lastest
+docker push vguillaume/youtube-mp4-server
+docker push vguillaume/youtube-mp4-client
