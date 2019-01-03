@@ -4,16 +4,30 @@ var soundcloud = document.querySelector('.soundcloud');
 var URLinput = document.querySelector('.URL-input');
 
 mp4.addEventListener('click', () => {
-	console.log(`URL: ${URLinput.value}`);	
-	sendMP4(URLinput.value);
+	if(URLinput.value.length > 0){
+		sendMP4(URLinput.value);
+		
+	}else{
+		alert("Paste valid link first");
+	}
+	//console.log(`URL: ${URLinput.value}`);	
+	
 });
 mp3.addEventListener('click', () => {
-	console.log(`URL: ${URLinput.value}`);	
-	sendMP3(URLinput.value);
+	if(URLinput.value.length > 0){
+		sendMP3(URLinput.value);
+		
+	}else{
+		alert("Paste valid link first");
+	}
 });
 soundcloud.addEventListener('click', () => {
-	console.log(`URL: ${URLinput.value}`);
-	sendSoundCloud(URLinput.value);
+	if(URLinput.value.length > 0){
+		sendSoundCloud(URLinput.value);
+		
+	}else{
+		alert("Paste valid link first");
+	}
 });	
 
 function sendMP4(URL) {
