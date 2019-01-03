@@ -1,8 +1,5 @@
 const express = require('express');
-let sndcld_dl = require("./sndcld-dl");
-var fs = require('fs');
-var scdl = require('scdl')
-const SoundRain = require('soundrain');
+const path = require('path');
 const soundcloudDl = require("soundcloud-dl");
 const cors = require('cors');
 const ytdl = require('ytdl-core');
@@ -27,7 +24,9 @@ app.get('/mp4', (req,res) => {
 	}).pipe(res);
 });
 
-
+app.get('/', (req, res) => {
+	res.send("you're at root");
+})
 
 app.get('/mp3', (req, res) => {
 	
@@ -39,7 +38,7 @@ app.get('/mp3', (req, res) => {
   horizon.download(paramsUrl, res, null, cropParams, null, false, function(err, e){
 
     if(err) {
-      return log.info(err);
+		res.sendFile(path.join(__dirname + '/error.html'));
     }
 
     if(e === horizon.successType.CONVERSION_FILE_COMPLETE){
@@ -54,11 +53,7 @@ app.get('/mp3', (req, res) => {
 app.get('/soundcloud', (req, res, next) => {
 
 	var url = req.query.URL;
-	soundcloudDl.getSongDlByURL(url).then(function(song){
-	console.log(song)
-
-	
-	  
+	soundcloudDl.getSongDlByURL(url).then(function(song){  
 	  res.redirect(song.http_mp3_128_url);
 });
 	
