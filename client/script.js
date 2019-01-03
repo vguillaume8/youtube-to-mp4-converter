@@ -17,13 +17,13 @@ soundcloud.addEventListener('click', () => {
 });	
 
 function sendMP4(URL) {
-	window.location.href = `http://35.237.46.180:4000/mp4?URL=${URL}`;
+	window.location.href = `http://35.231.107.15:4000/mp4?URL=${URL}`;
 }
 
 function sendMP3(URL) {
-	window.location.href = `http://35.237.46.180:4000/mp3?URL=${URL}`;
+	window.location.href = `http://35.231.107.15:4000/mp3?URL=${URL}`;
 }
 
 function sendSoundCloud(URL) {
-	window.location.href = `http://35.237.46.180:4000/soundcloud?URL=${URL}`;
+	window.location.href = `http://35.231.107.15:4000/soundcloud?URL=${URL}`;
 }
