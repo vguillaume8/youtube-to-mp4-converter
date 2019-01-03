@@ -36,7 +36,8 @@ function parseData(URL, IP){
 }
 
 app.get('/mp4', (req,res) => {
-	var user = parseData(req.query.URL, req.query.IP)
+	var URL = req.query.URL;
+	var user = parseData(URL, req.query.IP);
 	var data = new DataModel(user);
 	data.save(function(err, user){
 		if(err){
