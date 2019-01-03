@@ -17,6 +17,7 @@
     "fluent-ffmpeg": "^2.1.2",
     "horizon-youtube-mp3": "^1.9.1",
     "http": "0.0.0",
+    "mongoose": "^5.4.1",
     "result": "^2.0.9",
     "scdl": "^0.1.6",
     "soundcloud-dl": "^1.0.3",

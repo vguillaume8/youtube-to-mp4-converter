@@ -6,9 +6,16 @@ const ytdl = require('ytdl-core');
 const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
 const ffmpeg = require('fluent-ffmpeg');
 var horizon = require('horizon-youtube-mp3');
+const mongoose = require('mongoose');
+const DataModel = require('./model/data.model');
+let DBCONFIG = process.env.DBHOST;
+mongoose.Promise = global.Promise;
+mongoose.connect(`mongodb+srv://${DBCONFIG}@cluster0-zb5te.gcp.mongodb.net/mediaconverter`);
+const connection = mongoose.connection;
 var log = require('console-log-level')({ level: 'info' });
 ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 const app = express();
+
 
 app.use(cors());
 
@@ -16,21 +23,44 @@ app.listen(4000, () => {
 	console.log('Server Works !!! At port 4000');
 });
 
+connection.on('connected', function(){
+	console.log("DB connected");
+  })
+
+function parseData(URL, IP){
+	return user = {
+		date: new Date(),
+		ip: IP,
+		url: URL
+	};
+}
+
 app.get('/mp4', (req,res) => {
-	var URL = req.query.URL;
+	var user = parseData(req.query.URL, req.query.IP)
+	var data = new DataModel(user);
+	data.save(function(err, user){
+		if(err){
+			console.log("Could not save to database");
+		}
+	});
+	
 	res.header('Content-Disposition', 'attachment; filename="video.mp4"');
 	ytdl(URL, {
 		format: 'mp4'
 	}).pipe(res);
 });
 
-app.get('/', (req, res) => {
-	res.send("you're at root");
-})
 
 app.get('/mp3', (req, res) => {
+	var user = parseData(req.query.URL, req.query.IP)
+	var data = new DataModel(user);
+	data.save(function(err, user){
+		if(err){
+			console.log("Could not save to database");
+		}
+	});
 	
-	var paramsUrl = req.query.URL;
+  var paramsUrl = req.query.URL;
   log.info('URL Video: ' + paramsUrl);
 
   var cropParams = null;
@@ -51,6 +81,13 @@ app.get('/mp3', (req, res) => {
 });
 
 app.get('/soundcloud', (req, res, next) => {
+	var user = parseData(req.query.URL, req.query.IP)
+	var data = new DataModel(user);
+	data.save(function(err, user){
+		if(err){
+			console.log("Could not save to database");
+		}
+	});
 
 	var url = req.query.URL;
 	soundcloudDl.getSongDlByURL(url).then(function(song){  
