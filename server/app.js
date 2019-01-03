@@ -16,7 +16,7 @@ var log = require('console-log-level')({ level: 'info' });
 ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 const app = express();
 
-
+console.log(DBCONFIG);
 app.use(cors());
 
 app.listen(4000, () => {

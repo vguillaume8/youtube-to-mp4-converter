@@ -8,7 +8,7 @@
 
 - Hosted on GCP platform
 
-http://convert.vinstonguillaume.com
+http://mediaconverter.me
 
 
 Endpoint	Functionality
@@ -16,4 +16,6 @@ Endpoint	Functionality
 GET /mp4	convert to MP4
 
 GET /mp3	convert to MP3
+
+GET /soundcloud convert to MP3
 
