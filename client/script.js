@@ -4,7 +4,7 @@ var soundcloud = document.querySelector('.soundcloud');
 var URLinput = document.querySelector('.URL-input');
 
 mp4.addEventListener('click', () => {
-	if(URLinput.value.length > 0){
+	if(URLinput.value.length > 0 && URLinput.includes('youtube.com')){
 		sendMP4(URLinput.value);
 		
 	}else{
@@ -14,7 +14,7 @@ mp4.addEventListener('click', () => {
 	
 });
 mp3.addEventListener('click', () => {
-	if(URLinput.value.length > 0){
+	if(URLinput.value.length > 0 && URLinput.value.includes('youtube.com')){
 		sendMP3(URLinput.value);
 		
 	}else{
@@ -22,7 +22,7 @@ mp3.addEventListener('click', () => {
 	}
 });
 soundcloud.addEventListener('click', () => {
-	if(URLinput.value.length > 0){
+	if(URLinput.value.length > 0 && URLinput.value.includes("soundcloud.com")){
 		sendSoundCloud(URLinput.value);
 		
 	}else{
