@@ -30,7 +30,7 @@ connection.on('connected', function(){
 	console.log("DB connected");
   })
  let split= DBCONFIG.split(':');
- let pass = split[1];
+ let pass = String (split[1].trim());
  console.log(pass);
 
 
