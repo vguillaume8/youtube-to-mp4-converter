@@ -2,10 +2,10 @@ var mp4 = document.querySelector('.mp4');
 var mp3 = document.querySelector('.mp3');
 var soundcloud = document.querySelector('.soundcloud');
 var URLinput = document.querySelector('.URL-input');
-var HOST = 'http://35.231.107.15:4000';
+var HOST = 'http://localhost:4000';
 
 mp4.addEventListener('click', () => {
-	if(URLinput.value.length > 0 && URLinput.value.includes('youtube.com')){
+	if(URLinput.value.length > 0 && (URLinput.value.includes('youtube.com') || URLinput.value.includes('youtu.be'))){
 		sendMP4(URLinput.value);
 		
 	}else{
@@ -15,7 +15,7 @@ mp4.addEventListener('click', () => {
 	
 });
 mp3.addEventListener('click', () => {
-	if(URLinput.value.length > 0 && URLinput.value.includes('youtube.com')){
+	if(URLinput.value.length > 0 && (URLinput.value.includes('youtube.com') || URLinput.value.includes('youtu.be'))){
 		sendMP3(URLinput.value);
 		
 	}else{

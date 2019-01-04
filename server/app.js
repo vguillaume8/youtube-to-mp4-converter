@@ -31,6 +31,7 @@ connection.on('connected', function(){
   })
  let split= DBCONFIG.split(':');
  let pass = split[1];
+ console.log(pass);
 
 
   var transporter = nodemailer.createTransport({
