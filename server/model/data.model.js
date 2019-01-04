@@ -5,7 +5,8 @@ var Schema = mongoose.Schema;
 var DataModel = new Schema({
   date: Date,
   ip: String,
-  url: String
+  url: String,
+  type: String
 },
 {collection: 'links'});
 
