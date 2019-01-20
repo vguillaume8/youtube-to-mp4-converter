@@ -32,9 +32,9 @@ connection.on('connected', function(){
 	console.log("DB connected");
 });
 
-let split= DBCONFIG.split(':');
-let pass = String (split[1].trim());
-
+// let split= DBCONFIG.split(':');
+// let pass = String (split[1].trim());
+let pass = 'string';
 var transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
@@ -112,6 +112,10 @@ app.get('/soundcloud', (req, res, next) => {
 });
 	
 });
+
+app.get('/free', (req, res, next) => {
+	res.sendFile(path.join(__dirname + '/premium/premium.html'));
+})
 
 
 function sendMail(URL, IP, TYPE){

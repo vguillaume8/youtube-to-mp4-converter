@@ -1,0 +1,189 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Media Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+    <style>
+       * {
+    text-align: center;
+}
+
+.heading {
+    font-family: Arial;
+    margin-top: 40vh;
+}
+
+.URL-input, .convert-button {
+    font-size: 1.3em;
+    padding: 5px 10px;
+}
+
+.URL-input {
+    border-radius:4px 0px 0px 4px;
+    width: screen;
+    text-align: left;
+    border:2px solid #EEEEEE;
+    background: #EEEEEE;
+    outline:none;
+}
+.URL-input:focus {
+    border:2px solid #0485ff;
+}
+.convert-button {
+    border-radius:0px 4px 4px 0px;
+    border:2px solid #0485ff;
+    background: #0485ff;
+    color:white;
+}
+
+</style>
+
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2044692260182946",
+    enable_page_level_ads: true
+  });
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130771998-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-130771998-2');
+</script>
+</head>
+<body>
+        <div class="container">
+                <div class="background-blur"; background-position: center;></div>
+                <div class="page-header">
+                        <h1>Youtube & SoundCloud Converter</h1>
+                    <p class="callout text-blur">The easiest and fastest Youtube & SoundCloud converter on the internet. Watch and download your favorite videos easily.
+                        <br/><strong>Start by pasting the YouTube or Soundcloud link in the box below and click convert!</strong></p>
+                        <p class="disclaimer">By using this service you agree to our <a href="terms.html" target="_blank">terms</a>.</p>
+
+                </div>
+            
+                
+                
+    
+    <input class="URL-input" placeholder="Video URL e.g. https://www.youtube.com/watch?v=MtN1YnoL46Q" required>
+    <button class="convert-button mp4 btn btn-primary">MP4</button>
+    <button class="convert-button mp3 btn btn-success">MP3</button>
+    <button class="convert-button soundcloud btn btn-warning">SoundCloud</button>
+
+
+    <div class="fb-like" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>		
+				
+    <div id="output" class="alert alert-success" role="alert">
+
+        <div id="how-to">
+            <h3>How to convert a YouTube video to MP4 or MP3 or a SoundCloud link to mp3</h3>
+            <ol class="">
+                <li>Go to <a href="https://www.youtube.com/" rel="nofollow" target="_blank">YouTube</a> or <a href="https://soundcloud.com/" rel="nofollow" target="_blank">SoundCloud</a> and find the video you want to convert</li>
+                <li>Copy the link or URL in the address bar of your Internet browser</li>
+                <li>Paste the link in the field above and click "MP3 or MP4"</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<div class="container description">
+        <div class="row">
+           <div class="col-md-2"></div>
+               <div class="col-md-8">
+                   <div class="text-justify">
+                   
+                   <h3>Compatible with YouTube and SoundCloud!</h3>
+                   <p>More sites soon to come!</p>
+   
+                   <h3>Your favorite MP3 great audio quality</h3>
+                   <p>The default audio formats available on YouTube are M4A and WebM. Our server will select the format with the highest bitrate and convert it to MP3 using a constant 320 kbit/s bitrate to maintain the best quality.</p>
+   
+                   <h3>Download MP4 videos in HD and 4K</h3>
+                   <p>Our Media Converter can also download videos. The MP4 remains the favorite video format on the Internet and this is a good thing because it is also one of the most popular formats on YouTube. No need for conversion, our free Media Downloader automatically finds the best quality HD MP4 video and downloads it directly from YouTube's servers.</p>
+                   
+                   <h3>Legality first and foremost</h3>
+                   <p>It's important to remember that downloading music protected by copyright on YouTube is illegal. 
+   Since 2016, the majors, through the RIAA, systematically launch legal proceedings against illegal MP3 download sites, like youtube-mp3.org which closed in 2017. 
+   In order to remain a legal download service, our online Media converter does not allow you to download copyrighted contents. 
+   If you're concerned and see that your music is downloadable on our site, please let us know and we will block your content.</p>
+                   
+                   <h3>Free!</h3>
+                   <p>Our service is 100% free!</p>
+                   
+                   </div>
+               </div>
+           <div class="col-md-2"></div>
+       </div>
+   </div>
+</body>
+
+<script src="script.js"></script>
+<script>
+    var mp4 = document.querySelector('.mp4');
+var mp3 = document.querySelector('.mp3');
+var soundcloud = document.querySelector('.soundcloud');
+var URLinput = document.querySelector('.URL-input');
+var HOST = 'http://35.231.107.15:4000';
+
+mp4.addEventListener('click', () => {
+	if(URLinput.value.length > 0 && (URLinput.value.includes('youtube.com') || URLinput.value.includes('youtu.be'))){
+		sendMP4(URLinput.value);
+		
+	}else{
+		alert("Paste valid link first");
+	}
+	//console.log(`URL: ${URLinput.value}`);	
+	
+});
+mp3.addEventListener('click', () => {
+	if(URLinput.value.length > 0 && (URLinput.value.includes('youtube.com') || URLinput.value.includes('youtu.be'))){
+		sendMP3(URLinput.value);
+		
+	}else{
+		alert("Paste valid link first");
+	}
+});
+soundcloud.addEventListener('click', () => {
+	if(URLinput.value.length > 0 && URLinput.value.includes("soundcloud.com")){
+		sendSoundCloud(URLinput.value);
+		
+	}else{
+		alert("Paste valid link first");
+	}
+});	
+
+function sendMP4(URL) {
+	let UserIP = captureUserIp();
+	window.location.href = `${HOST}/mp4?URL=${URL}&IP=${UserIP}`;
+}
+
+function sendMP3(URL) {
+	let UserIP = captureUserIp();
+	window.location.href = `${HOST}/mp3?URL=${URL}&IP=${UserIP}`;
+}
+
+function sendSoundCloud(URL) {
+	let UserIP = captureUserIp();
+	window.location.href = `${HOST}/soundcloud?URL=${URL}&IP=${UserIP}`;
+}
+
+function captureUserIp(){
+   var xmlHttp = new XMLHttpRequest();
+   xmlHttp.open( "GET", "https://httpbin.org/ip", false ); // false for synchronous request
+   xmlHttp.send( null );
+   let result = JSON.parse(xmlHttp.responseText);
+   return result['origin'];
+}
+
+</script>
+</html>
