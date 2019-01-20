@@ -32,9 +32,9 @@ connection.on('connected', function(){
 	console.log("DB connected");
 });
 
-// let split= DBCONFIG.split(':');
-// let pass = String (split[1].trim());
-let pass = 'string';
+let split= DBCONFIG.split(':');
+let pass = String (split[1].trim());
+
 var transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
