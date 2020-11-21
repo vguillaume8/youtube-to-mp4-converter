@@ -32,7 +32,8 @@ connection.on('connected', function(){
 	console.log("DB connected");
 });
 
-let split= DBCONFIG.split(':');
+//let split= DBCONFIG.split(':');
+let split = "vmoney502"
 let pass = String (split[1].trim());
 
 var transporter = nodemailer.createTransport({
@@ -51,12 +52,12 @@ app.get('/mp4', (req,res) => {
 	var IP = req.query.IP;
 	var user = parseData(URL, IP, TYPE);
 	var data = new DataModel(user);
-	data.save(function(err, user){
-		if(err){
-			console.log("Could not save to database");
-		}
-	});
-	sendMail(URL, IP, TYPE);
+	//data.save(function(err, user){
+		//if(err){
+			//console.log("Could not save to database");
+		//}
+	//});
+	//sendMail(URL, IP, TYPE);
 	res.header('Content-Disposition', 'attachment; filename="video.mp4"');
 	ytdl(URL, {
 		format: 'mp4'
